@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+android {
+    namespace = "com.example.autosuggestiontest"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId = "com.example.autosuggestiontest"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a" // Add if you face native library issues
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+flutter {
+    source = "../.."
+}
+dependencies {
+    implementation "org.tensorflow:tensorflow-lite-select-tf-ops:2.12.0" // Support for Flex ops
+    implementation "org.tensorflow:tensorflow-lite:2.12.0" // Core TFLite library
+    implementation "org.tensorflow:tensorflow-lite-gpu:2.12.0" // Optional GPU support (if needed)
+
+}
+
+
