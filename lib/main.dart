@@ -1,4 +1,5 @@
 import 'package:autosuggestiontest/service/tensorflow.dart';
+import 'package:autosuggestiontest/ui/doctor_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SuggestionScreen(),
+      home: TextClassifierScreen(),
     );
   }
 }
