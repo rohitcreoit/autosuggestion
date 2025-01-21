@@ -10,7 +10,6 @@ class TFLiteTextClassifier {
 
   /// Load assets (vectorizer JSON, label encoder JSON, and TFLite model)
   Future<void> loadModelAssets() async {
-    // Load vectorizer JSON
     final vectorizerJson =
         await rootBundle.loadString('assets/text_vectorizer.json');
     _textVectorizer = Map<String, int>.from(jsonDecode(vectorizerJson));
@@ -26,8 +25,7 @@ class TFLiteTextClassifier {
 
   /// Preprocess input text into a vectorized representation
   List<double> _preprocess(String inputText) {
-    // Tokenize the input text
-    final tokens = inputText.toLowerCase().split(' ');
+       final tokens = inputText.toLowerCase().split(' ');
 
     // Create a one-hot encoded vector based on the vocabulary
     final vectorizedInput = List<double>.generate(
